@@ -1,6 +1,7 @@
-const connection = require('./client.js');
+let connection = require('./client.js');
 
-const setupInput = function() {
+const setupInput = (conn) => {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -10,20 +11,22 @@ const setupInput = function() {
 };
 
 const handleUserInput = function(key) {
-  console.log(key);
   if (key === "w" || key === "W") {
+    console.log(`${key} pressed - Move up`);
     connection.write('Move: up');
   } else if (key === "s" || key === "S") {
+    console.log(`${key} pressed - Move down`);
     connection.write('Move: down');
   } else if (key === "a" || key === "A") {
+    console.log(`${key} pressed - Move left`);
     connection.write("Move: left");
   } else if (key === "d" || key === "D") {
+    console.log(`${key} pressed - Move right`);
     connection.write("Move: right");
   } else if (key === '\u0003') { // exit with control+c
+    console.log(`Control+C pressed - disconnecting from server`);
     process.exit();
   }
-
-  // or if control c close program
 };
 
 module.exports = setupInput;
