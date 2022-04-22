@@ -26,6 +26,8 @@ const connect = function() {
     //   conn.write("Move: left");
     // }, 1750);
 
+    
+
   });
 
   // when there is no input for 5 seconds, disconnect the client from the server
@@ -33,6 +35,12 @@ const connect = function() {
     console.log(`You afk'd for 5 seconds so you lost. Git gud scrub`);
     conn.destroy();
   });
+
+
   return conn;
 };
-module.exports = connect;
+
+
+let connection = connect();
+
+module.exports = connection;
