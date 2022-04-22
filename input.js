@@ -38,4 +38,5 @@ const handleUserInput = function(key) {
   }
 };
 
+// allows play.js to connect to this file.
 module.exports = setupInput;

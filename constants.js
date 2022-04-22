@@ -1,19 +1,19 @@
+// default network variables
 const IP = 'localhost';
 const PORT = 50541;
 
-//Canned messages:
-
+// Canned messages:
 const sayGG = 'Say: gg';
 const sayTHX = 'Say: thx!';
 const sayGLHF = 'Say: glhf';
 
-// movement keys:
-
+// Movement keys:
 const moveUP = 'Move: up';
 const moveDOWN = 'Move: down';
 const moveLEFT = 'Move: left';
 const moveRIGHT = 'Move: right';
 
+// Allows client.js to connect to this file.
 module.exports = {
   IP,
   PORT,
