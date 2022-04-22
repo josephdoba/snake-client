@@ -1,14 +1,17 @@
-const net = require("net");
-// establishes a connection with the game server
-const connect = function() {
+const net = require("net"); // Imports nodes' net module.
+const {IP, PORT} = require("./constants"); // imports IP and Port from our constants.js object
+
+// establishes a connection with the game server:
+const connect = function(ip, port) {
   const conn = net.createConnection({
-    host: 'localhost', // IP address here,
-    port: 50541// PORT number here,
+    host: ip,
+    port: port
   });
 
   // interpret incoming data as text with correct encoding:
   conn.setEncoding("utf8");
-  // when connection is made:
+
+  // On connection, confirm it connected
   conn.on("connect", () => {
     conn.write('Name: SNK');
     console.log("Successfully connected to game server");
@@ -24,4 +27,4 @@ const connect = function() {
 
 // let connection = connect();
 // module.exports = connection;
-module.exports = connect();
+module.exports = connect(IP, PORT);
