@@ -10,11 +10,13 @@ const connect = function() {
   conn.setEncoding("utf8");
   // when connection is made:
   conn.on("connect", () => {
-    console.log("Connection established!");
+    conn.write('Name: SNK');
+    console.log("Successfully connected to game server");
+
   });
   // when there is no input for 5 seconds, disconnect the client from the server
   conn.setTimeout(5000, ()=> {
-    console.log(`line21`);
+    console.log(`You afk'd for 5 seconds so you lost. Git gud scrub`);
     conn.destroy();
   });
   return conn;
